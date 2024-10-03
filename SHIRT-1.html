@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirt Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .shirt-details {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .shirt-image {
+            max-width: 300px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .details {
+            max-width: 400px;
+        }
+
+        .details h2 {
+            color: #333;
+        }
+
+        .description {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 24px;
+            color: #e67e22;
+        }
+
+        .buy-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .buy-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #333;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .form-popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .form-popup h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .form-popup input, .form-popup textarea, .form-popup select {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-popup textarea {
+            height: 80px;
+        }
+
+        .close-button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            float: right;
+        }
+
+        .submit-button {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .submit-button:hover {
+            background: #219653;
+        }
+
+        .upi-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 16px;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .upi-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function toggleForm() {
+            const form = document.getElementById('orderForm');
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>GR TRADERS</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="SHOP.html">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="shirt-details">
+           
+            <div class="details">
+                <h2>Stylish Cotton Shirt</h2>
+                <p class="description">This stylish cotton shirt is perfect for any occasion. Comfortable and fashionable!</p>
+              
+                <button class="buy-button" onclick="toggleForm()">Buy Now</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="form-popup" id="orderForm">
+        <h2>Order Form</h2>
+        <button class="close-button" onclick="toggleForm()">Close</button>
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="00edf87e-6a63-4b34-8c4a-71a03999fc6c">
+            
+            <input type="text" name="shirt_name" placeholder="Shirt Name" value="Stylish Cotton Shirt" readonly>
+            
+            <input type="text" name="shirt_code" placeholder="ENTER SHIRT CODE(Below shirt name)" required>
+            
+            <input type="text" name="your_name" placeholder="Your Name" required>
+            
+            <input type="tel" name="phone_number" placeholder="Phone Number" required>
+            <div class="form-group">
+                <input type="text" name="district" placeholder="District" required>
+                <input type="text" name="mandal" placeholder="Mandal" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="village" placeholder="Village" required>
+                <input type="tel" name="pincode" placeholder="Pincode" required>
+            </div>
+            
+            
+            
+            <label for="size">Select Size:</label>
+            <select id="size" name="size" required>
+                <option value="" disabled selected>Select Size</option>
+                <option value="S">Small</option>
+                <option value="M">Medium</option>
+                <option value="L">Large</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+                <option value="XXXL">XXXL</option>
+            </select>
+            
+            <label for="utr">ENTER 12 DIGIT UTR NUMBER (After Payment):</label>
+            <input type="tel" id="utr" name="utr_number" placeholder="12 Digit UTR Number" required pattern="\d{12}">
+            
+            <a href="PAY.html" class="upi-link">Pay Using UPI</a>
+            <button type="submit" class="submit-button">Submit Order</button>
+        </form>
+        <style>
+            .form-group {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 15px; /* Adjust spacing as needed */
+            }
+        
+            .form-group input {
+                flex: 1; /* Makes inputs take equal space */
+                margin-right: 10px; /* Adds space between inputs */
+            }
+        
+            .form-group input:last-child {
+                margin-right: 0; /* Removes right margin from the last input */
+            }
+        </style>
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2024 GR TRADERS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #e9ecef;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .qr-code {
+            margin: 20px 0;
+        }
+        .pay-button, .back-button {
+            padding: 10px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            width: 80%;
+            text-align: center;
+        }
+        .pay-button:hover, .back-button:hover {
+            background-color: #0056b3;
+        }
+        .contact-info {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .copy-icon {
+            cursor: pointer;
+            margin-left: 5px;
+            color: #007bff;
+        }
+    </style>
+    <script>
+        function copyToClipboard(text) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert('Copied to clipboard: ' + text);
+        }
+
+        function goBack() {
+            window.history.back(); // Navigate back to the previous page
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Make a Payment</h1>
+    <div class="qr-code">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=upi://pay?pa=9392447451@ybl" alt="QR Code" width="200">
+    </div>
+    <p>Scan the QR code with your UPI app or click the button below.</p>
+    <a href="upi://pay?pa=9392447451@ybl" class="pay-button">Pay Now</a>
+    
+    <div class="contact-info">
+        <p>
+            UPI ID: <span id="upiId">9392447451@ybl</span>
+            <i class="fas fa-copy copy-icon" onclick="copyToClipboard('9392447451@ybl')"></i>
+        </p>
+        <p>
+            Phone: <span id="phoneNumber">9392447451</span>
+            <i class="fas fa-copy copy-icon" onclick="copyToClipboard('9392447451')"></i>
+        </p>
+    </div>
+
+    <a href="javascript:void(0)" class="back-button" onclick="goBack()">Back</a>
+</div>
+
+</body>
+</html>

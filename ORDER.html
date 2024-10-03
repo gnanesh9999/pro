@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .form-popup {
+            margin: 20px;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .buy-button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buy-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Order Form</h1>
+    </header>
+    <main>
+        <div class="form-popup">
+            <h2 id="shirtName"></h2>
+            <img id="shirtImage" src="" alt="" style="max-width: 300px;">
+            <p id="shirtPrice"></p>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea placeholder="Shipping Address" required></textarea>
+                <button type="submit" class="buy-button">Submit Order</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Shirt Store. All rights reserved.</p>
+    </footer>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const shirtName = urlParams.get('name');
+        const shirtPrice = urlParams.get('price');
+        const shirtImage = urlParams.get('image');
+
+        document.getElementById('shirtName').innerText = shirtName;
+        document.getElementById('shirtPrice').innerText = `Price: ₹${shirtPrice}`;
+        document.getElementById('shirtImage').src = shirtImage;
+    </script>
+</body>
+</html>
