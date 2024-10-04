@@ -359,7 +359,7 @@ ol {
     padding: 25px 15px 0;
     width: 200px;
     height: auto;
-    margin-left: 20px; /* Adjust this value to move right */
+    margin-left: -150px; /* Adjust this value to move right */
 }
 
 
