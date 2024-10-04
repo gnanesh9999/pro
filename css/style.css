@@ -357,9 +357,9 @@ ol {
 
 .header__logo {
     padding: 25px 15px 0;
-    width: 150px;
+    width: 200px;
     height: auto;
-    margin-left: 80px; /* Adjust this value to move right */
+    margin-left: 20px; /* Adjust this value to move right */
 }
 
 
