@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GR Stores - Shirt Catalog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GR Stores - Shirt Catalog</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by Shirt Code..." onkeyup="searchShirt()">
+        </div>
+        <table id="shirtTable">
+            <thead>
+                <tr>
+                    <th>Shirt Image</th>
+                    <th>Shirt Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="https://assets.ajio.com/medias/sys_master/root/20240507/mdc0/663a557116fd2c6e6af0eee9/-1117Wx1400H-467293008-brown-MODEL.jpg" alt="Shirt 1"></td>
+                    <td>GR101</td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Jr-NTRspotted-promoting-RRR-on-sets-of-The-Kapil-Sharma-Show_%28cropped%29.jpg/220px-Jr-NTRspotted-promoting-RRR-on-sets-of-The-Kapil-Sharma-Show_%28cropped%29.jpg" alt="Shirt 2"></td>
+                    <td>GR102</td>
+                </tr>
+                <tr>
+                    <td><img src="https://example.com/shirt3.jpg" alt="Shirt 3"></td>
+                    <td>GR103</td>
+                </tr>
+                <tr>
+                    <td><img src="https://example.com/shirt4.jpg" alt="Shirt 4"></td>
+                    <td>GR104</td>
+                </tr>
+                <!-- Add more shirt rows with your external image links -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function searchShirt() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("shirtTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
