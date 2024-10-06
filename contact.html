@@ -10,11 +10,11 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: black;
+            background: #2c3e50;
             color: white;
         }
 
-        /* Moving Stars Background */
+        /* Starry background styles */
         .stars {
             width: 2px;
             height: 2px;
@@ -29,16 +29,15 @@
             to { transform: translateY(1000px); }
         }
 
-        /* Generating multiple stars */
         .stars:nth-child(1) { left: 20%; animation-duration: 35s; }
         .stars:nth-child(2) { left: 40%; animation-duration: 20s; }
         .stars:nth-child(3) { left: 60%; animation-duration: 40s; }
         .stars:nth-child(4) { left: 80%; animation-duration: 60s; }
         .stars:nth-child(5) { left: 30%; animation-duration: 45s; }
 
-        /* General container styles */
+        /* Container styles */
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
             position: relative;
@@ -48,12 +47,25 @@
         h1 {
             text-align: center;
             color: #ffffff;
-            background-color: #e67e22;
+            background-color: #e74c3c;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 40px;
             letter-spacing: 2px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h3 a {
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #3498db;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        h3 a:hover {
+            background-color: #2980b9;
         }
 
         .contact-info {
@@ -91,7 +103,7 @@
         }
 
         .contact-info p a {
-            color: #2980b9;
+            color: #3498db;
             text-decoration: none;
         }
 
@@ -99,7 +111,7 @@
             text-decoration: underline;
         }
 
-        /* Styles for the embedded map */
+        /* Map container */
         .map-container {
             margin-top: 30px;
         }
@@ -112,7 +124,7 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
         }
 
-        /* Footer styles */
+        /* Footer */
         footer {
             text-align: center;
             padding: 20px;
@@ -136,6 +148,59 @@
             text-decoration: underline;
         }
 
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            .contact-info h2 {
+                font-size: 22px;
+            }
+
+            .contact-info p {
+                font-size: 16px;
+            }
+
+            iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 20px;
+                padding: 15px;
+            }
+
+            .contact-info {
+                padding: 15px;
+            }
+
+            .contact-info h2 {
+                font-size: 20px;
+            }
+
+            .contact-info p {
+                font-size: 14px;
+            }
+
+            iframe {
+                height: 250px;
+            }
+
+            footer {
+                padding: 10px;
+            }
+
+            footer p {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -153,15 +218,15 @@
 
         <div class="contact-info">
             <h2>Get in Touch</h2>
-            <p><i class="fas fa-phone"></i> Mobile: <a href="tel:+919398002689">+91 9398011848  ,+91 9398002689</a></p>
+            <p><i class="fas fa-phone"></i> Mobile: <a href="tel:+919398002689">+91 9398011848, +91 9398002689</a></p>
             <p><i class="fas fa-envelope"></i> Email: <a href="mailto:grstores@example.com">giristores@gmail.com</a></p>
-            <p><i class="fas fa-map-marker-alt"></i> Address: Ramachandra puram junction,Ponduru(post),Kotauratla(Mandal),Anakapalli Andhra Pradesh,531085</p>
+            <p><i class="fas fa-map-marker-alt"></i> Address: Ramachandra Puram Junction, Ponduru(Post), Kotauratla(Mandal), Anakapalli, Andhra Pradesh, 531085</p>
         </div>
 
         <div class="map-container">
             <h2>Find Us Here</h2>
             <!-- Embedded Google Map -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2174.037640673261!2d82.72248400882695!3d17.511798539419264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39bd4804aacd9b%3A0x1fba3392e11249a4!2sSri%20Durga%20Devi%20Gayatri%20Mata%20Temple!5e1!3m2!1sen!2sin!4v1727948509275!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2174.037640673261!2d82.72248400882695!3d17.511798539419264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39bd4804aacd9b%3A0x1fba3392e11249a4!2sSri%20Durga%20Devi%20Gayatri%20Mata%20Temple!5e1!3m2!1sen!2sin!4v1727948509275!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 
