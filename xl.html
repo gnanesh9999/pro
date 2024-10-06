@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirt Store</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .shirt-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+        .shirt-card {
+            background: white;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            width: 200px;
+        }
+        .shirt-card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .form-popup {
+            display: none; /* Initially hide the form */
+            margin: 20px;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .buy-button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buy-button:hover {
+            background-color: #2980b9;
+        }
+        .buy-text {
+            color: #3498db;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .buy-text:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        const shirts = [
+            { name: "Stylish Cotton Shirt", price: 1999, image: "https://via.placeholder.com/150" },
+            { name: "Classic White Shirt", price: 1499, image: "https://via.placeholder.com/150" },
+            { name: "Casual Denim Shirt", price: 1799, image: "https://via.placeholder.com/150" },
+            { name: "Formal Black Shirt", price: 2299, image: "https://via.placeholder.com/150" },
+            { name: "Graphic T-Shirt", price: 999, image: "https://via.placeholder.com/150" },
+            { name: "Summer Linen Shirt", price: 1899, image: "https://via.placeholder.com/150" },
+            { name: "Retro Polka Dot Shirt", price: 1599, image: "https://via.placeholder.com/150" },
+            { name: "Sporty Activewear Shirt", price: 1299, image: "https://via.placeholder.com/150" },
+        ];
+
+        function showForm(index) {
+            const shirt = shirts[index];
+            const form = document.getElementById('orderForm');
+
+            // Fill in the form with shirt details
+            form.innerHTML = `
+                <h2>Order Form for ${shirt.name}</h2>
+                <img src="${shirt.image}" alt="${shirt.name}" style="max-width: 300px;">
+                <p>Price: ₹${shirt.price}</p>
+                <button class="close-button" onclick="toggleForm()">Close</button>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="tel" placeholder="Phone Number" required>
+                    <textarea placeholder="Shipping Address" required></textarea>
+                    <button type="submit" class="buy-button">Submit Order</button>
+                </form>
+            `;
+            form.style.display = 'block';
+        }
+
+        function toggleForm() {
+            const form = document.getElementById('orderForm');
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+    <style>
+        /* Basic styling for the navigation menu */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            background-color: #333;
+        }
+
+        li {
+            position: relative;
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            display: block;
+        }
+
+        a:hover {
+            background-color: #555;
+        }
+
+        /* Dropdown styling */
+        .sub-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .sub-menu a {
+            color: #333;
+            padding: 10px;
+            background-color: #f9f9f9;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sub-menu a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show dropdown on hover */
+        li:hover .sub-menu {
+            display: block;
+        }
+
+    </style>
+    <header>
+        <h1>GR TRADERS</h1>
+        <nav>
+           
+    <ul>
+        <!-- Home Link -->
+        <li><a href="index.html">Home</a></li>
+        
+        <!-- Sizes Dropdown -->
+        <li>
+            <a href="#">Sizes</a>
+            <ul class="sub-menu">
+                <li><a href="SHOP.html">Medium</a></li>
+                <li><a href="large.html">LARGE</a></li>
+                <li><a href="#">XXL</a></li>
+            </ul>
+        </li>
+        
+        <!-- Back Link -->
+        <li><a href="SHOP.html">Back</a></li>
+    </ul>
+
+        </nav>
+    </header>
+    
+    <main>
+    
+    
+        <div class="shirt-list">
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-26.jpg" alt="Stylish Cotton Shirt">
+                <h3>Cotton Shirt</h3>
+                <h3>SHIRT CODE:GX01</h3>
+                <p>Price: ₹420</p>
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-27.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca Dotted Shirt</h3>
+                <h3>SHIRT CODE:GX02</h3>
+                <p>Price: ₹320</p>
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-28.jpg" alt="Stylish Cotton Shirt">
+                <h3>Pure Cotton Shirt</h3>
+                <h3>SHIRT CODE:GX03</h3>
+                <p>Price: ₹320</p>
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-29.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX04</h3>
+                <p>Price: ₹420</p>
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-30.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX05</h3>
+                
+                <p>Price: ₹420</p> 
+               
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-31.jpg" alt="Stylish Cotton Shirt">
+                <h3>Pure cotton Shirt</h3>
+                <h3>SHIRT CODE:GX06</h3>
+                <p>Price: ₹420</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-32.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX07</h3>
+                <p>Price: ₹420</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-33.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX08</h3>
+                <p>Price: ₹420</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-34.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX09</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-35.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX10</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-36.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX11</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-37.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX12</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-38.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX13</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-39.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX14</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-40.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX15</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-41.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX16</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-42.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX17</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-43.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX18</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-44.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX19</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-45.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX20</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-46.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX21</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-47.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX22</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-48.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX23</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-49.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX24</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-50.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX25</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-51.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX26</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-52.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX27</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-53.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX28</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+            <div class="shirt-card" onclick="showForm(0)">
+                <img src="img/product/product-54.jpg" alt="Stylish Cotton Shirt">
+                <h3>Lyrca checks Shirt</h3>
+                <h3>SHIRT CODE:GX29</h3>
+                <p>Price: ₹380</p> 
+                <span class="buy-text"><a href="SHIRT-1.html">Buy</a></span>
+            </div>
+           
+        </div>
+
+        <div class="form-popup" id="orderForm" style="display: none;"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Shirt Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>
